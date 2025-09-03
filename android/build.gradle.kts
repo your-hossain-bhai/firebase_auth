@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application") apply false
     kotlin("android") apply false
-    // 👇 এখানে ভার্সন লিখে দাও
+    
     id("com.google.gms.google-services") version "4.4.3" apply false
 }
 
@@ -13,7 +13,6 @@ allprojects {
 }
 
 
-// তোমার কাস্টম buildDir গুলো যেভাবে ছিল সেভাবেই থাকুক
 val newBuildDir: Directory = rootProject.layout.buildDirectory.dir("../../build").get()
 rootProject.layout.buildDirectory.value(newBuildDir)
 
