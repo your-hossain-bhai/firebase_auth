@@ -87,11 +87,15 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        'Eco Score',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.green[900],
+                      Expanded(
+                        // ✅ Fix
+                        child: Text(
+                          'Eco Score',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.green[900],
+                          ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],
@@ -100,13 +104,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        '150 Eco Coin',
-                        style: TextStyle(color: Colors.green[800]),
+                      Flexible(
+                        child: Text(
+                          '150 Eco Coin',
+                          style: TextStyle(color: Colors.green[800]),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
-                      Text(
-                        '+15 This Week',
-                        style: TextStyle(color: Colors.green[800]),
+                      Flexible(
+                        child: Text(
+                          '+15 This Week',
+                          style: TextStyle(color: Colors.green[800]),
+                          overflow: TextOverflow.ellipsis,
+                        ),
                       ),
                     ],
                   ),
@@ -135,9 +145,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Icon(Icons.warning_amber, color: Colors.orange[700]),
               const SizedBox(width: 8),
-              const Text(
-                'AI Environmental Alerts',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              const Expanded(
+                child: Text(
+                  'AI Environmental Alerts',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
@@ -172,9 +185,12 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               Icon(Icons.cloud, color: Colors.blue[700]),
               const SizedBox(width: 8),
-              const Text(
-                'Climate Risk Management',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              const Expanded(
+                child: Text(
+                  'Climate Risk Management',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ],
           ),
@@ -211,15 +227,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   const SizedBox(height: 12),
                   Align(
                     alignment: Alignment.centerRight,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue[700],
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                    child: FittedBox(
+                      // ✅ Fix for button overflow
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue[700],
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
                         ),
+                        onPressed: () {},
+                        child: const Text('View Full Map'),
                       ),
-                      onPressed: () {},
-                      child: const Text('View Full Map'),
                     ),
                   ),
                 ],
@@ -248,6 +267,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Icon(Icons.warning, color: color, size: 32),
             const SizedBox(width: 12),
             Expanded(
+              // ✅ Fix for overflow
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -289,7 +309,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     description,
                     style: const TextStyle(fontSize: 14),
                     softWrap: true,
-                    overflow: TextOverflow.visible,
                   ),
                   const SizedBox(height: 4),
                   Text(
